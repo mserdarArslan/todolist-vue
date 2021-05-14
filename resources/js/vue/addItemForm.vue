@@ -30,6 +30,7 @@ export default {
         .then((response) => {
           if (response.status == 201) {
             this.item.neme = "";
+            this.$emit("reloadlist");
           }
         })
         .catch((erro) => {
