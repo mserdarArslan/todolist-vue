@@ -74,13 +74,14 @@ class ItemController extends Controller
     public function update(Request $request, $id)
     {
         $existingItem = Item::find($id);
-        if( $existingItem ) {
+        if ($existingItem) {
             $existingItem->completed = $request->item['completed'];
-            $existingItem->completed_at = $request->item['completed'] ? Carbon:now() : null;
+            $existingItem->completed_at = $request->item['completed'] ? Carbon::now() : null;
             $existingItem->save();
             return $existingItem;
         }
-        return "Item not found.";    }
+        return "Item not found.";
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -91,7 +92,7 @@ class ItemController extends Controller
     public function destroy($id)
     {
         $existingItem = Item::find($id);
-        if( $existingItem ) {
+        if ($existingItem) {
             $existingItem->delete();
             return "Item successfully deleted.";
         }
